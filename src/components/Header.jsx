@@ -5,7 +5,7 @@ export const Header = (props) => {
   return (
     <>
       <div
-        className={`container h-20 flex justify-center w-full  ${
+        className={`container h-20 relative flex justify-center w-full z-10  ${
           props.darkLight ? "bg-white" : "bg-dark"
         }`}
       >

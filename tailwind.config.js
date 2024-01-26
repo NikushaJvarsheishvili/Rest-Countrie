@@ -7,6 +7,7 @@ export default {
       transparent: "transparent",
       current: "currentColor",
       white: "#ffffff",
+      cream: "#FAFAFA",
       purple: "#3f3cbb",
       midnight: "#121063",
       metal: "#565584",
@@ -16,11 +17,14 @@ export default {
       dark: "#2B3844",
       body: "#202C36",
     },
-    zIndex: {
-      "00": "-1",
-    },
+    // zIndex: {
+    //   "00": "-1",
+    // },
     height: {
+      114: "56",
       20: "80px",
+      336: "390px",
+      300: "210px",
       max: "1000px",
     },
   },
