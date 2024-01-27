@@ -6,18 +6,31 @@ import { Arrow } from "../icon/Arrow";
 
 export const Find = (props) => {
   const [searchInput, setSearchInput] = useState("");
-  const [countriesData, setCountriesData] = useState();
+  const [notFound, setNotFound] = useState("");
   const [regionFilter, setRegionFilter] = useState(false);
-  const [selectedRegion, setSelectedRegion] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const searchFunction = async (e) => {
-    e.preventDefault();
-    const searchApi = await fetch(
-      `https://restcountries.com/v3.1/name/${searchInput}`
-    );
-    const searchData = await searchApi.json();
-    setCountriesData(searchData);
+    try {
+      setNotFound("");
+      e.preventDefault();
+      setLoading(true);
+      const searchApi = await fetch(
+        `https://restcountries.com/v3.1/name/${searchInput}`
+      );
+      const searchData = await searchApi.json();
+      if (searchData.status === 404) {
+        throw new Error("Not found");
+      } else {
+        setNotFound("");
+        props.setCountriesData(searchData);
+      }
+    } catch (err) {
+      setNotFound(err.message);
+    }
+    setLoading(false);
   };
+
   const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
   const byRegion = async (region) => {
     const regionApi = await fetch(
@@ -25,7 +38,7 @@ export const Find = (props) => {
     );
     const regionData = await regionApi.json();
 
-    setCountriesData(regionData);
+    props.setCountriesData(regionData);
   };
 
   return (
@@ -53,6 +66,9 @@ export const Find = (props) => {
               placeholder="Search for a country…"
             />
           </form>
+          <span className="text-3xl text-white">{notFound}</span>
+          {loading && <span className="loader"></span>}
+
           <button
             onClick={() => setRegionFilter(!regionFilter)}
             className={`select-region px-6 rounded flex justify-between items-center ${
@@ -76,8 +92,10 @@ export const Find = (props) => {
         </div>
         <Countrie
           darkLight={props.darkLight}
-          countriesData={countriesData}
-          setCountriesData={setCountriesData}
+          countriesData={props.countriesData}
+          setCountriesData={props.setCountriesData}
+          setOpenCountries={props.setOpenCountries}
+          setCountriesIndex={props.setCountriesIndex}
         />
       </div>
     </>

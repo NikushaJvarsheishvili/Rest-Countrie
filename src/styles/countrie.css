@@ -1,6 +1,9 @@
 .countrie-box {
   box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.1);
 }
+.countries {
+  padding-bottom: 100px;
+}
 .countrie-box:hover {
   box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.7);
   transition: all 0.3s;

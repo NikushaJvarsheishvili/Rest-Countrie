@@ -1,0 +1,29 @@
+@media screen and (max-width: 760px) {
+  .search-continents {
+    flex-direction: column;
+    gap: 40px;
+    align-items: start;
+    height: 180px;
+  }
+  .region-filter {
+    left: 20px;
+    top: 320px;
+  }
+  .countrie-box:hover {
+    box-shadow: none;
+    transition: inherit;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .open-center-box {
+    flex-direction: column;
+    border: 1px solid red;
+    align-items: center;
+  }
+  .info-side {
+    transform: translate(0, -200px);
+    border: 1px solid red;
+    width: 100%;
+  }
+}

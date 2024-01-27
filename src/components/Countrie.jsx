@@ -14,12 +14,17 @@ export const Countrie = (props) => {
     fatch();
   }, []);
 
+  const openFunction = (index) => {
+    props.setOpenCountries(true);
+    props.setCountriesIndex(index);
+  };
+
   useEffect(() => {
     if (props.countriesData) {
       const countries = props.countriesData.map((item, index) => {
         return (
-          <LazyLoad height={350} offset={100} key={index}>
-            <button onClick={() => console.log(index)}>
+          <LazyLoad height={400} offset={100} key={index}>
+            <button onClick={() => openFunction(index)}>
               <div
                 className={`countrie-box w-72 h-336 rounded ${
                   props.darkLight ? "bg-white" : "bg-dark"

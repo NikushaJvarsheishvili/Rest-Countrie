@@ -1,0 +1,22 @@
+/* .open-container {
+  border: 1px solid red;
+} */
+/* .open-center-box {
+  border: 1px solid green;
+} */
+/* .image-side {
+  border: 1px solid orange;
+} */
+
+.back-button {
+  width: 136px;
+  height: 40px;
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.29);
+}
+.image-side {
+  width: 559.715px;
+  height: 483.169px;
+}
+.open-flag {
+  box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.3);
+}
